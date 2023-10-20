@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SkateSpotter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index.css">
+	<script	src="map.js"></script>
+</head>
+<body>
+<!-- Navigation -->
+<header class="header">
+	<div class="container">
+		<a href='#' onclick="redirectToIndex()">SkateSpotter</a>
+		<a href="#" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+		<div class="spots">
+			<button id="modalBtn" class="header-btn-right">Login / Sign Up</button>
+			<button id="logoutBtn" class="header-btn-right">Log out</button>
+			<button id="submitBtn" class="header-btn-right">Submit a spot</button>
+			<button id="pendingBtn" class="header-btn-right">Pending spots</button>
+			<button id="sponsorBtn" class="header-btn-right">Sponsor me</button>
+			<div id="user-info"></div>
+		</div>
+	</div>
+</header>
+  <main class="main-spot">
+	<body onload="loadSpotData(); initializeCommentSection(); initializeVideoSection();">
+		<div class="container">
+			<div class="container-spot">
+				<div class="cont-flex">
+					<div>
+						<h1 contenteditable="false" id="spot-title">
+							<!-- Title hardcode-->
+						</h1>
+						<div id="spot-images">
+
+							<!-- Spot images hardcode-->
+					   </div>
+					</div>
+				   <div class="comments">
+					<h2>Comments</h2>
+					<div class="comment-section">
+						
+						<div class="comments-container" id="comments-container">
+							<!-- Existing comments will be displayed here -->
+							
+						</div>
+					</div>
+					<div class="put-comment">
+						<input type="text" id="comment-input" placeholder="Enter your comment...">
+						<button id="submit-comment-btn">Submit</button>
+		
+						<p id="notlogged-comment">Please log in to add a comment</p>
+					</div>
+					<br><br><br>
+					<div class="form-spot-container">
+						 <p id="spot-description">
+							<!-- Description hardcode-->
+						 </p>
+					
+				</div>
+				   </div>
+				</div>
+				   <div class="map-spot-container">
+					<div id="map">
+						<!-- Google maps hardcode -->
+					</div>
+					<p id="spot-address">Address: </p>
+				   </div>
+				
+			</div>
+			<div class="videos-spot-container">
+				<p id="no-videos">No video has been submited for this spot yet</p>
+				<p id="notlogged-video">Please log in to add a video</p>
+				<div id="videos-container">
+					<!-- Existing videos will be displayed here -->
+					
+				</div>
+				<button id="add-video-btn" class="spot-btn">Upload Video</button>
+			</div>
+	
+			<div id="modal-img" class="modal-img">
+				<span class="close-img">&times;</span>
+				<img class="modal-content-img" id="modal-image">
+			</div>
+	
+	
+			<div class="spot-btn-container">
+				<button id="editBtn" class="spot-btn">Edit</button>
+				<button id="deleteBtn" class="spot-btn">Delete</button>
+			</div>
+	
+	
+			<div id="addVideoModal" class="modal">
+				<div class="video-modal-content">
+				  <span class="close">&times;</span>
+				  <div class="video-container-submit">
+					<div class="form-video-container">
+					  <form id="videoForm" class="addVideoForm" enctype="application/x-www-form-urlencoded">
+						<label for="videoFile">Add your video:</label>
+						<input type="file" id="videoFile" name="videos"><br><br>
+						
+						<button id="submit-video-btn" type="submit">Submit</button>
+					  </form>
+					</div>
+				  </div>
+				</div>
+			  </div>
+		</div>
+		</body>
+	</main> 
+	<footer>
+		<p>&copy; 2023 SkateSpotter</p>
+	</footer>
+
+	<!-- Modal -->
+	<div id="modal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h2>Login / Sign Up</h2>
+			<span class="close">&times;</span>
+		  </div>
+		  <div class="modal-body">
+			<!-- Login Form -->
+			<form id="loginForm" class="form">
+			  <input type="email" placeholder="Email" required>
+			  <input type="password" placeholder="Password" required>
+			  <button type="submit">Login</button>
+			  <div id="formToggle">
+				<span>Don't have an account?</span>
+				<a href="#" id="signupLink">Sign up</a>
+			  </div>
+			</form>
+			<!-- Sign Up Form -->
+			<form id="signupForm" class="form">
+			  <input type="email" placeholder="Email" required>
+			  <input type="text" placeholder="Username" required>
+			  <input type="password" placeholder="Password" required>
+			  <input type="password" placeholder="Confirm Password" required>
+			  <button type="submit">Sign Up</button>
+			  <div id="formToggle">
+				<span>Already have an account?</span>
+				<a href="#" id="loginLink">Login</a>
+			  </div>
+			</form>
+			
+		  </div>
+		</div>
+	  </div>
+	
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoxJi5hotsnzg6BRohH_cPSP4xHvpo4iw&callback=initMap_submitPage"></script>
+</body>
+
+<script src="scripts.js"></script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SkateSpotter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index.css">
+	<script	src="map.js"></script>
+	<script src="opennav.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body onload="initMap()">
+<!-- Navigation -->
+<header class="header">
+	<div class="container">
+		<a href='#' onclick="redirectToIndex()">SkateSpotter</a>
+		<a href="#" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+		<div class="spots">
+			<button id="modalBtn" class="header-btn-right">Login / Sign Up</button>
+			<button id="logoutBtn" class="header-btn-right">Log out</button>
+			<button id="submitBtn" class="header-btn-right">Submit a spot</button>
+			<button id="pendingBtn" class="header-btn-right">Pending spots</button>
+			<button id="sponsorBtn" class="header-btn-right">Sponsor me</button>
+			<div id="user-info"></div>
+		</div>
+	</div>
+</header>
+	<section class="welcome-header">
+		<h2>“In skateboarding, you're never bigger than the streets.”</h2>
+		<h2 style="font-size: 25px;"> — Rob Dyrdek</h2>
+		<!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit accusantium pariatur facere nesciunt 
+		labore magni excepturi maxime sapiente totam mollitia eveniet soluta, dolorum, ea provident aspernatur saepe fugit! Unde, sint!</p> -->
+		<a type="button" class="welcome-btn" href="#main">Find skate spots now!</a>
+	</section>
+	<main class="main" id="main">
+		<div class="search">
+			<div>
+				<label for="location">Search Location:</label>
+				<input type="text" id="location" name="location" placeholder="Enter a location">
+			</div>
+			<button onclick="searchLocation()" style="color:#fff;">Search</button>
+		</div>
+		<div id="map"></div>
+	</main>
+	<footer>
+		<p>Copyright: © 2023 SkateSpotter. Made by Rares</p>
+	</footer>
+
+	<!-- Modal -->
+	<div id="modal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h2>Login / Sign Up</h2>
+			<span class="close">&times;</span>
+		  </div>
+		  <div class="modal-body">
+			<!-- Login Form -->
+			<form id="loginForm" class="form">
+			  <input type="email" placeholder="Email" required>
+			  <input type="password" placeholder="Password" required>
+			  <button type="submit">Login</button>
+			  <div id="formToggle">
+				<span>Don't have an account?</span>
+				<a href="#" id="signupLink">Sign up</a>
+			  </div>
+			</form>
+			<!-- Sign Up Form -->
+			<form id="signupForm" class="form">
+			  <input type="email" placeholder="Email" required>
+			  <input type="text" placeholder="Username" required>
+			  <input type="password" placeholder="Password" required>
+			  <input type="password" placeholder="Confirm Password" required>
+			  <button type="submit">Sign Up</button>
+			  <div id="formToggle">
+				<span>Already have an account?</span>
+				<a href="#" id="loginLink">Login</a>
+			  </div>
+			</form>
+			
+		  </div>
+		</div>
+	  </div>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoxJi5hotsnzg6BRohH_cPSP4xHvpo4iw&callback=initMap"></script>
+</body>
+
+<script src="scripts.js"></script>
+</html>

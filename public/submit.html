@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SkateSpotter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index.css">
+	<script	src="map.js"></script>
+</head>
+<body>
+<!-- Navigation -->
+<!-- Navigation -->
+<header class="header">
+	<div class="container">
+		<a href='#' onclick="redirectToIndex()">SkateSpotter</a>
+		<a href="#" class="hamburger"><i class="fa-solid fa-bars"></i></a>
+		<div class="spots">
+			<button id="modalBtn" class="header-btn-right">Login / Sign Up</button>
+			<button id="logoutBtn" class="header-btn-right">Log out</button>
+			<button id="submitBtn" class="header-btn-right">Submit a spot</button>
+			<button id="pendingBtn" class="header-btn-right">Pending spots</button>
+			<button id="sponsorBtn" class="header-btn-right">Sponsor me</button>
+			<div id="user-info"></div>
+		</div>
+	</div>
+</header>
+	<main class="submit-main"> <!---  action="" method="post"    -->
+		<div class="container">
+			<div class="container-submit">
+				<div class="form-submit-container">
+					<form id="submitForm" class="submitSpotForm" enctype="multipart/form-data">
+						<h4>Submit a spot</h4>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name"><br><br>
+						
+						<label for="location">Location:</label>
+						<input type="text" id="location" name="location"><br><br>
+						<div class="input-flex">
+							<div class="first-div">
+								<label for="latitude">Latitude:</label>
+								<input type="number" id="latitude" name="latitude" step="0.000001" readonly><br><br>
+								<label for="longitude">Longitude:</label>
+								<input type="number" id="longitude" name="longitude" step="0.000001" readonly><br><br>
+							</div>
+							<div class="map-submit-container">
+								<div id="map-submit"></div>
+							</div>
+						</div>
+						<button type="button" onclick="checkAddress()">Check</button><br><br>
+						
+						<label for="description">Description:</label>
+						<textarea id="description" name="description"></textarea><br><br>
+						
+						<label for="image1">Upload Image 1:</label>
+						<input type="file" id="image1" name="images"><br><br>
+	
+						<label for="image2">Upload Image 2:</label>
+						<input type="file" id="image2" name="images"><br><br>
+	
+						<label for="image3">Upload Image 3:</label>
+						<input type="file" id="image3" name="images"><br><br>
+	
+						<input class="submit-btn" type="submit" value="Submit" onclick="submitForm(event)">
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p>&copy; 2023 SkateSpotter</p>
+	</footer>
+
+	<!-- Modal -->
+	<div id="modal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h2>Login / Sign Up</h2>
+			<span class="close">&times;</span>
+		  </div>
+		  <div class="modal-body">
+			<!-- Login Form -->
+			<form id="loginForm" class="form">
+			  <input type="email" placeholder="Email" required>
+			  <input type="password" placeholder="Password" required>
+			  <button type="submit">Login</button>
+			  <div id="formToggle">
+				<span>Don't have an account?</span>
+				<a href="#" id="signupLink">Sign up</a>
+			  </div>
+			</form>
+			<!-- Sign Up Form -->
+			<form id="signupForm" class="form">
+			  <input type="email" placeholder="Email" required>
+			  <input type="text" placeholder="Username" required>
+			  <input type="password" placeholder="Password" required>
+			  <input type="password" placeholder="Confirm Password" required>
+			  <button type="submit">Sign Up</button>
+			  <div id="formToggle">
+				<span>Already have an account?</span>
+				<a href="#" id="loginLink">Login</a>
+			  </div>
+			</form>
+			
+		  </div>
+		</div>
+	  </div>
+	
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoxJi5hotsnzg6BRohH_cPSP4xHvpo4iw&callback=initMap_submitPage"></script>
+</body>
+
+<script src="scripts.js"></script>
+</html>
